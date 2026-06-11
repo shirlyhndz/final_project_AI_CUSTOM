@@ -1,6 +1,6 @@
 # Proyecto Examen Final - Módulo 3
 
-Proyecto base para la evaluación práctica del módulo 3. Los requisitos oficiales están en `../Evaluacion_Final_Modulo_3.docx`.
+Proyecto base para la evaluación práctica del módulo 3. Los requisitos oficiales están en `Enunciado en la serie II de la evaluación final`.
 
 ## Inicio rápido
 
