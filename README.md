@@ -117,21 +117,43 @@ OK
 | `docs/TDD.md`        | Estrategia de pruebas y validación   |
 | `docs/END_TO_END.md` | Flujo completo de frontend a backend |
 
-## Evidencias
 
-Las capturas se encuentran en:
+## Evidencias del proceso
+
+Las evidencias se encuentran en la carpeta:
 
 ```text
 docs/evidencias/
 ```
 
-Incluyen evidencia de:
+| No. | Evidencia                                                                        | Descripción                                                                      |
+| --- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| 01  | [Pruebas base OK](docs/evidencias/01_pruebas_base_ok.png)                        | Validación inicial antes de modificar el proyecto                                |
+| 02  | [Validación parcial CAG](docs/evidencias/02_validacion_parcial_cag.png)          | Prueba CAG fallando parcialmente, usada para detectar el problema de integración |
+| 03  | [Validación CAG OK](docs/evidencias/03_validacion_cag_ok.png)                    | Pruebas de contrato CAG pasando correctamente                                    |
+| 04  | [Pruebas finales OK](docs/evidencias/04_pruebas_finales_ok.png)                  | Validación final de pruebas base y CAG                                           |
+| 05  | [Pruebas propias OK](docs/evidencias/05_pruebas_propias_ok.png)                  | Pruebas unitarias propias agregadas en `tests/student/`                          |
+| 06  | [App con RAG sin contexto](docs/evidencias/06_app_rag_sin_contexto.png)          | Aplicación funcionando con respuesta basada en RAG                               |
+| 07  | [App con CAG usando contexto](docs/evidencias/07_app_respuesta_con_contexto.png) | Aplicación usando contexto persistente en la respuesta                           |
+| 08  | [Pull Request creado](docs/evidencias/08_pull_request_creado.png)                | Evidencia del Pull Request dentro del fork                                       |
+| 09  | [Merge a main](docs/evidencias/09_merge_a_main.png)                              | Evidencia del merge hacia `main` dentro del fork                                 |
 
-* Pruebas base ejecutadas.
-* Validación parcial CAG con fallo detectado.
-* Validación CAG corregida.
-* Pruebas finales.
-* Pruebas propias.
+### Capturas principales
+
+#### Validación final de pruebas
+
+![Pruebas finales OK](docs/evidencias/04_pruebas_finales_ok.png)
+
+#### Aplicación usando CAG con contexto
+
+![App con CAG](docs/evidencias/07_app_respuesta_con_contexto.png)
+
+#### Pull Request y merge
+
+![Pull Request creado](docs/evidencias/08_pull_request_creado.png)
+
+![Merge a main](docs/evidencias/09_merge_a_main.png)
+
 
 ## Uso de IA
 
