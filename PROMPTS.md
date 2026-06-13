@@ -59,3 +59,23 @@ Se creó `docs/SDD.md`.
 
 **Verificación aplicada:**  
 Se ejecutaron nuevamente las pruebas base y pasaron correctamente.
+
+## Prompt 04 - Corrección de integración CAG por validación
+
+**Objetivo del prompt:**  
+Corregir la integración del módulo CAG después de ejecutar pruebas de validación.
+
+**Prompt usado:**  
+La prueba `test_ask_uses_context_to_influence_later_response` sigue fallando. El contexto se guarda correctamente con `/api/context`, pero `/api/ask` no está usando ese contexto en la respuesta. Analiza la causa sin rehacer todo el proyecto.
+
+**Resumen de la respuesta recibida:**  
+La IA identificó que `server.py` y `assistant.py` estaban usando instancias diferentes de `ContextStore`, por lo que el contexto guardado no llegaba al flujo de respuesta.
+
+**Decisión tomada:**  
+Se verificó manualmente el fallo mediante pruebas y se decidió corregir la arquitectura pasando `context_items` desde `server.py` hacia `answer_question`, en lugar de crear otra memoria dentro de `assistant.py`.
+
+**Cambios realizados en el proyecto:**  
+Se modificó `assistant.py` para recibir `context_items` como parámetro. También se modificó `server.py` para recuperar el contexto del usuario y enviarlo al asistente. Además, `cag.py` fue actualizado para aplicar el contexto sobre la respuesta base.
+
+**Verificación aplicada:**  
+Se ejecutó `python -m unittest tests.validation.test_cag_contract`. La primera validación falló, evidenciando el problema de integración. Después de la corrección, las tres pruebas CAG pasaron correctamente.
