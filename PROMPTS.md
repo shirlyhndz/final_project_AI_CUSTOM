@@ -19,3 +19,23 @@ Se creó el registro inicial de uso de IA en `PROMPTS.md` y se documentó el an�
 
 **Verificación aplicada:**  
 Se ejecutaron las pruebas base con `python -m unittest discover -s tests/base -p "test_*.py"` y pasaron correctamente. También se revisaron manualmente los archivos `server.py`, `assistant.py`, `knowledge.py`, `context_store.py`, `cag.py`, `frontend/index.html`, `frontend/app.js` y `data/knowledge_base.json`.
+
+## Prompt 02 - Planificación Scrum del proyecto
+
+**Objetivo del prompt:**
+Organizar el trabajo del proyecto usando metodología Scrum, con backlog y cuatro sprints incrementales.
+
+**Prompt usado:**
+Con base en el enunciado del examen y el análisis del monolito, ayúdame a estructurar una documentación Scrum con backlog, Sprint 1 de análisis, Sprint 2 de diseño CAG, Sprint 3 de implementación CAG y Sprint 4 de validación final, evidencias y entrega.
+
+**Resumen de la respuesta recibida:**
+La IA propuso una planificación Scrum organizada en cuatro sprints: análisis inicial, diseño técnico, implementación CAG y validación final. También sugirió incluir backlog, tareas priorizadas, cierre de sprint y entregables esperados.
+
+**Decisión humana tomada:**
+Se decidió trabajar con cuatro sprints para mostrar un proceso incremental más claro: análisis, diseño, implementación y validación final.
+
+**Cambios realizados en el proyecto:**
+Se creó el archivo `docs/SCRUM.md` con backlog, planificación de cuatro sprints, ejecución y cierre.
+
+**Verificación aplicada:**
+Se revisó que la documentación Scrum incluya las tareas obligatorias del enunciado: CAG, pruebas, documentación, evidencias, commits incrementales y Pull Request.
