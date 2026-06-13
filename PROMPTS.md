@@ -143,3 +143,24 @@ Se creó `docs/TDD.md`.
 
 **Verificación aplicada:**
 Se validaron pruebas base, pruebas CAG de contrato y pruebas propias con resultado OK.
+
+
+## Prompt 08 - Documentación del flujo End-to-End
+
+**Objetivo del prompt:**  
+Documentar el flujo completo de la aplicación desde el frontend hasta el backend, incluyendo RAG y CAG.
+
+**Prompt usado:**  
+Con base en la implementación actual, ayúdame a documentar el flujo end-to-end del sistema, explicando cómo una pregunta pasa del frontend al backend, cómo se recupera contexto, cómo se consulta RAG y cómo CAG modifica la respuesta final.
+
+**Resumen de la respuesta recibida:**  
+La IA propuso documentar el flujo completo desde la entrada del usuario, consumo de endpoints, recuperación de contexto, recuperación documental RAG, aplicación CAG y respuesta final.
+
+**Decisión humana tomada:**  
+Se decidió crear un documento separado para facilitar la revisión técnica del flujo completo del sistema.
+
+**Cambios realizados en el proyecto:**  
+Se creó `docs/END_TO_END.md`.
+
+**Verificación aplicada:**  
+Se comparó el flujo documentado contra los archivos `frontend/app.js`, `backend/server.py`, `backend/assistant.py`, `backend/knowledge.py`, `backend/context_store.py` y `backend/cag.py`.
