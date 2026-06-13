@@ -39,3 +39,23 @@ Se creó el archivo `docs/SCRUM.md` con backlog, planificación de cuatro sprint
 
 **Verificación aplicada:**
 Se revisó que la documentación Scrum incluya las tareas obligatorias del enunciado: CAG, pruebas, documentación, evidencias, commits incrementales y Pull Request.
+
+## Prompt 03 - Diseño técnico SDD para integración CAG
+
+**Objetivo del prompt:**  
+Documentar el diseño técnico para integrar CAG dentro del monolito sin reemplazar el RAG existente.
+
+**Prompt usado:**  
+Con base en el análisis del monolito, ayúdame a crear un SDD que explique el estado inicial, problema detectado, solución propuesta, flujo de integración CAG, componentes modificados y validación esperada.
+
+**Resumen de la respuesta recibida:**  
+La IA propuso un documento SDD con propósito, estado inicial, problema, solución CAG, flujo propuesto, decisión arquitectónica, componentes a modificar y criterios de validación.
+
+**Decisión:**  
+Se decidió mantener RAG como base documental y agregar CAG como capa complementaria de contexto persistente.
+
+**Cambios realizados en el proyecto:**  
+Se creó `docs/SDD.md`.
+
+**Verificación aplicada:**  
+Se ejecutaron nuevamente las pruebas base y pasaron correctamente.
