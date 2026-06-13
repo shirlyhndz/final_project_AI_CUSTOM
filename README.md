@@ -1,49 +1,163 @@
-# Proyecto Examen Final - Módulo 3
+# Proyecto Examen Final - Módulo 3 IA
 
-Proyecto base para la evaluación práctica del módulo 3. Los requisitos oficiales están en `Enunciado en la serie II de la evaluación final`.
+## Descripción
 
-## Inicio rápido
+Este proyecto parte de un monolito base con frontend, backend y recuperación de conocimiento tipo RAG. La mejora implementada consiste en integrar un módulo CAG (Context-Augmented Generation) para guardar, recuperar y utilizar contexto persistente por usuario.
 
-1. Abra la carpeta `ProyectoExamen`.
-2. Ejecute las pruebas base.
-3. Levante el backend.
-4. Abra el frontend para revisar el estado inicial.
+La solución mantiene el RAG existente y agrega una capa de contexto para mejorar respuestas posteriores sin romper la arquitectura base.
 
-## Estructura
+## Arquitectura general
 
-| Ruta | Contenido |
-|---|---|
-| `backend/` | Código del servidor y lógica base del asistente. |
-| `frontend/` | Interfaz web estática para interactuar con el backend. |
-| `data/` | Base de conocimiento inicial del proyecto. |
-| `tests/base/` | Pruebas base que deben pasar desde el inicio. |
-| `tests/validation/` | Pruebas de validación de la entrega final. |
-| `docs/` | Espacio para documentación técnica y evidencias del estudiante. |
+El proyecto conserva una arquitectura monolítica organizada por carpetas:
 
-## Ejecutar pruebas base
+| Carpeta             | Descripción                                   |
+| ------------------- | --------------------------------------------- |
+| `frontend/`         | Interfaz web para ingresar usuario y pregunta |
+| `backend/`          | Servidor, lógica del asistente, RAG y CAG     |
+| `data/`             | Base documental usada por RAG                 |
+| `tests/base/`       | Pruebas base del proyecto                     |
+| `tests/validation/` | Pruebas de contrato CAG                       |
+| `tests/student/`    | Pruebas propias agregadas                     |
+| `docs/`             | Documentación técnica, Scrum y evidencias     |
 
-```bash
-./scripts/run_base_tests.sh
+## Módulos principales
+
+### RAG
+
+El módulo RAG se encuentra en `backend/knowledge.py`. Recupera fragmentos relevantes desde `data/knowledge_base.json` según la pregunta del usuario.
+
+### CAG
+
+El módulo CAG se implementó en:
+
+* `backend/context_store.py`: guarda y recupera contexto por usuario.
+* `backend/cag.py`: aplica el contexto guardado sobre la respuesta.
+* `backend/assistant.py`: integra RAG + CAG.
+* `backend/server.py`: expone endpoints para contexto y preguntas.
+
+## Endpoints
+
+| Endpoint                   | Método | Descripción                           |
+| -------------------------- | ------ | ------------------------------------- |
+| `/api/context`             | POST   | Guarda contexto por usuario           |
+| `/api/context?user_id=...` | GET    | Recupera contexto guardado            |
+| `/api/ask`                 | POST   | Genera una respuesta usando RAG + CAG |
+
+## Ejecución del backend
+
+```powershell
+$env:PYTHONPATH="."; python -m backend.server
 ```
 
-Estas pruebas validan que el proyecto inicial funciona correctamente.
+El backend queda disponible en:
 
-## Ejecutar backend
-
-```bash
-PYTHONPATH=. python3 -m backend.server
+```text
+http://127.0.0.1:8000
 ```
 
-El backend queda disponible en `http://127.0.0.1:8000`.
+## Ejecución del frontend
 
-## Abrir frontend
+Abrir el archivo:
 
-Abra `frontend/index.html` en un navegador. También puede servir la carpeta con un servidor estático local si lo prefiere.
-
-## Validación final
-
-```bash
-./test.sh
+```text
+frontend/index.html
 ```
 
-En el proyecto base, la validación final está destinada a fallar. Debe utilizarse como autoevaluación cuando el trabajo solicitado en el enunciado esté completo.
+Desde el navegador se puede ingresar un usuario, escribir una pregunta y visualizar la respuesta generada por el backend.
+
+## Pruebas ejecutadas
+
+### Pruebas base
+
+```powershell
+$env:PYTHONPATH="."; python -m unittest discover -s tests/base -p "test_*.py"
+```
+
+Resultado:
+
+```text
+Ran 3 tests
+OK
+```
+
+### Pruebas de validación CAG
+
+```powershell
+$env:PYTHONPATH="."; python -m unittest tests.validation.test_cag_contract
+```
+
+Resultado:
+
+```text
+Ran 3 tests
+OK
+```
+
+### Pruebas propias
+
+```powershell
+$env:PYTHONPATH="."; python -m unittest discover -s tests/student -p "test_*.py"
+```
+
+Resultado:
+
+```text
+Ran 3 tests
+OK
+```
+
+## Documentación incluida
+
+| Documento            | Descripción                          |
+| -------------------- | ------------------------------------ |
+| `PROMPTS.md`         | Registro cronológico del uso de IA   |
+| `docs/SCRUM.md`      | Backlog y planificación en 4 sprints |
+| `docs/SDD.md`        | Diseño técnico de la solución        |
+| `docs/BDD.md`        | Escenarios de comportamiento         |
+| `docs/TDD.md`        | Estrategia de pruebas y validación   |
+| `docs/END_TO_END.md` | Flujo completo de frontend a backend |
+
+## Evidencias
+
+Las capturas se encuentran en:
+
+```text
+docs/evidencias/
+```
+
+Incluyen evidencia de:
+
+* Pruebas base ejecutadas.
+* Validación parcial CAG con fallo detectado.
+* Validación CAG corregida.
+* Pruebas finales.
+* Pruebas propias.
+
+## Uso de IA
+
+La IA se utilizó como asistente de análisis, diseño, documentación y apoyo en pruebas. Las decisiones fueron verificadas manualmente mediante ejecución de pruebas y revisión del código.
+
+El registro completo se encuentra en:
+
+```text
+PROMPTS.md
+```
+
+## Sprints realizados
+
+| Sprint   | Enfoque                                            |
+| -------- | -------------------------------------------------- |
+| Sprint 1 | Análisis inicial y pruebas base                    |
+| Sprint 2 | Planificación Scrum y diseño técnico               |
+| Sprint 3 | Implementación de almacenamiento e integración CAG |
+| Sprint 4 | Pruebas, documentación final y evidencias          |
+
+## Alcance logrado
+
+Se logró implementar una capa CAG funcional que:
+
+* Guarda contexto por usuario.
+* Recupera contexto persistente en memoria.
+* Usa contexto en respuestas posteriores.
+* Mantiene el RAG existente.
+* Pasa pruebas base, pruebas de contrato y pruebas propias.
