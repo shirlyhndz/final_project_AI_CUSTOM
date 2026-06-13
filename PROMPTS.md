@@ -99,3 +99,7 @@ Se creó el archivo `docs/BDD.md`.
 
 **Verificación aplicada:**
 Se compararon los escenarios BDD contra las pruebas de `tests/validation/test_cag_contract.py` y la validación final ya ejecutada.
+
+
+git add PROMPTS.md tests/student/test_cag_unit.py docs/evidencias/05_pruebas_propias_ok.png
+git commit -m "Sprint 4: agregar pruebas propias CAG"
