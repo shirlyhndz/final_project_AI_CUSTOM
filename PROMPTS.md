@@ -103,3 +103,43 @@ Se compararon los escenarios BDD contra las pruebas de `tests/validation/test_ca
 
 git add PROMPTS.md tests/student/test_cag_unit.py docs/evidencias/05_pruebas_propias_ok.png
 git commit -m "Sprint 4: agregar pruebas propias CAG"
+
+## Prompt 06 - Pruebas propias para el módulo CAG
+
+**Objetivo del prompt:**
+Crear pruebas propias para validar el comportamiento interno del módulo CAG y no depender únicamente de las pruebas base del proyecto.
+
+**Prompt usado:**
+Con base en la implementación del módulo CAG, ayúdame a crear pruebas unitarias propias para validar almacenamiento de contexto, actualización de claves existentes y aplicación del contexto en una respuesta.
+
+**Resumen de la respuesta recibida:**
+La IA propuso pruebas unitarias para `ContextStore` y `apply_context`, validando que el contexto pueda guardarse, recuperarse, actualizarse y aplicarse sobre una respuesta base.
+
+**Decisión humana tomada:**
+Se decidió agregar una carpeta `tests/student/` para separar las pruebas propias de las pruebas base y de validación entregadas por el proyecto.
+
+**Cambios realizados en el proyecto:**
+Se creó el archivo `tests/student/test_cag_unit.py` con tres pruebas unitarias propias.
+
+**Verificación aplicada:**
+Se ejecutó el comando `$env:PYTHONPATH="."; python -m unittest discover -s tests/student -p "test_*.py"` y las tres pruebas pasaron correctamente.
+
+## Prompt 07 - Documentación TDD y pruebas propias
+
+**Objetivo del prompt:**
+Documentar la aplicación de TDD y las pruebas propias agregadas para validar CAG.
+
+**Prompt usado:**
+Con base en las pruebas ejecutadas y el módulo CAG implementado, ayúdame a crear una documentación TDD que explique pruebas base, prueba fallida inicial, corrección aplicada, pruebas propias y validación final.
+
+**Resumen de la respuesta recibida:**
+La IA propuso documentar el proceso TDD mostrando que primero se ejecutaron pruebas, luego se detectó el fallo de integración CAG, se corrigió el flujo y finalmente se agregaron pruebas propias.
+
+**Decisión humana tomada:**
+Se decidió documentar el fallo inicial y la corrección porque demuestra verificación real y no aceptación automática de la solución generada por IA.
+
+**Cambios realizados en el proyecto:**
+Se creó `docs/TDD.md`.
+
+**Verificación aplicada:**
+Se validaron pruebas base, pruebas CAG de contrato y pruebas propias con resultado OK.
