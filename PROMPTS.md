@@ -79,3 +79,23 @@ Se modificó `assistant.py` para recibir `context_items` como parámetro. Tambi�
 
 **Verificación aplicada:**  
 Se ejecutó `python -m unittest tests.validation.test_cag_contract`. La primera validación falló, evidenciando el problema de integración. Después de la corrección, las tres pruebas CAG pasaron correctamente.
+
+## Prompt 05 - Escenarios BDD para validación CAG
+
+**Objetivo del prompt:**
+Documentar escenarios BDD para validar el comportamiento esperado del módulo CAG.
+
+**Prompt usado:**
+Con base en el módulo CAG implementado, ayúdame a crear escenarios BDD en formato Given-When-Then para guardar contexto, recuperar contexto, usar contexto en respuestas posteriores y responder sin contexto previo.
+
+**Resumen de la respuesta recibida:**
+La IA propuso escenarios BDD enfocados en el comportamiento observable del sistema: guardar contexto, recuperarlo, aplicarlo en `/api/ask` y responder correctamente cuando no exista contexto.
+
+**Decisión tomada:**
+Se decidió documentar los escenarios en `docs/BDD.md` porque representan los comportamientos principales exigidos por el contrato de validación CAG.
+
+**Cambios realizados en el proyecto:**
+Se creó el archivo `docs/BDD.md`.
+
+**Verificación aplicada:**
+Se compararon los escenarios BDD contra las pruebas de `tests/validation/test_cag_contract.py` y la validación final ya ejecutada.
