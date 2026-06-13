@@ -164,3 +164,24 @@ Se creó `docs/END_TO_END.md`.
 
 **Verificación aplicada:**  
 Se comparó el flujo documentado contra los archivos `frontend/app.js`, `backend/server.py`, `backend/assistant.py`, `backend/knowledge.py`, `backend/context_store.py` y `backend/cag.py`.
+
+
+## Prompt 09 - Actualización del README final
+
+**Objetivo del prompt:**  
+Actualizar el README final del repositorio para explicar claramente la solución implementada.
+
+**Prompt usado:**  
+Con base en el proyecto final con CAG implementado, documentación Scrum, SDD, BDD, TDD, flujo end-to-end, pruebas y evidencias, ayúdame a estructurar un README técnico final para entregar el repositorio.
+
+**Resumen de la respuesta recibida:**  
+La IA propuso un README con descripción del proyecto, arquitectura, módulos RAG y CAG, endpoints, comandos de ejecución, pruebas realizadas, documentación incluida, evidencias, uso de IA, sprints y alcance logrado.
+
+**Decisión tomada:**  
+Se decidió reemplazar el README base por una versión final enfocada en explicar la solución implementada y facilitar la revisión del ingeniero.
+
+**Cambios realizados en el proyecto:**  
+Se actualizó `README.md`.
+
+**Verificación aplicada:**  
+Se revisó que el README incluya arquitectura, pruebas, documentación, evidencias, uso de IA y alcance final.
